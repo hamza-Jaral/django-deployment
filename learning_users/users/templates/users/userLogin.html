@@ -1,0 +1,23 @@
+{% extends 'users/base.html' %}
+{% block bodyblock %}
+    
+{% if message %}
+    <div class="jumbotron">{{ message }}</div>
+{% endif %}
+
+
+<div class="jumbotron">
+    <h1>Please Login!</h1>
+    <form action="{% url 'login' %}" class="form" method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+
+    <input type="submit" name="submit" id="submit">
+    </form>
+</div>
+
+{% endblock %}
